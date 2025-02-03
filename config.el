@@ -85,7 +85,7 @@
         "rr" #'phpactor-refactor
         "rc" #'phpactor-context-menu))
 
-;; Configure LSP for PHP (using Intelephense)
+;; ;; Configure LSP for PHP (using Intelephense)
 (after! lsp-mode
   (setq lsp-intelephense-server-command '("intelephense" "--stdio"))
   (add-hook 'php-mode-hook #'lsp))  ; enable lsp-mode for PHP files
@@ -115,23 +115,6 @@
    (package-install 'use-package)
    (setq use-package-always-ensure t)
    (require 'use-package)))
-
-;; (use-package projectile)
-;; (use-package flycheck)
-;; (use-package yasnippet :config (yas-global-mode))
-;; (use-package lsp-mode :hook ((lsp-mode . lsp-enable-which-key-integration)))
-;; (use-package hydra)
-;; (use-package company)
-;; (use-package lsp-ui)
-;; (use-package which-key :config (which-key-mode))
-;; (use-package lsp-java :config (add-hook 'java-mode-hook 'lsp))
-;; (use-package dap-mode :after lsp-mode :config (dap-auto-configure-mode))
-;; (use-package dap-java :ensure nil)
-;; (use-package helm-lsp)
-;; (use-package helm
-;;   :config (helm-mode))
-;; (use-package lsp-treemacs)
-
 
 (doom/set-frame-opacity 92)
 
