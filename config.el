@@ -104,17 +104,17 @@
 (after! projectile (setq projectile-project-root-files-bottom-up (remove ".git"
           projectile-project-root-files-bottom-up)))
 
-;; lsp-java config
-(condition-case nil
-    (require 'use-package)
-  (file-error
-   (require 'package)
-   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-   (package-initialize)
-   (package-refresh-contents)
-   (package-install 'use-package)
-   (setq use-package-always-ensure t)
-   (require 'use-package)))
+;; ;; lsp-java config
+;; (condition-case nil
+;;     (require 'use-package)
+;;   (file-error
+;;    (require 'package)
+;;    (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+;;    (package-initialize)
+;;    (package-refresh-contents)
+;;    (package-install 'use-package)
+;;    (setq use-package-always-ensure t)
+;;    (require 'use-package)))
 
 (doom/set-frame-opacity 92)
 

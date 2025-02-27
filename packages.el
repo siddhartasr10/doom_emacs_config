@@ -6,7 +6,7 @@
 ;; use 'M-x doom/reload'.
 (package! iedit)
 (package! evil-mc)
-(package! lsp-java)
+;; (package! lsp-java)
 (package! dap-mode)
 
 
