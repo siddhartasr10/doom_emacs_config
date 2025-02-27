@@ -94,7 +94,7 @@
 (map! :leader :nv "s e" nil)
 ;; :nv es para que funcione en los modos normal y visual
 ;; Si quieres ver como funciona map haz "K" mayuscula encima de map!
-;; Si quieres añadir algún shortcut con el spacio no lo añadas como bink ej "SPC c" sino que pon :leader, para que puedas usarlo
+;; Si quieres añadir algún shortcut con el espacio no lo añadas como bink ej "SPC c" sino que pon :leader, para que puedas usarlo
 ;; sin que se active el espacio en el modo insert
 ;; acuerdate de que K te enseña la doc y J concatena las lineas esta guay
 (map! :desc "Comment Line" :nv "C-c l" #'comment-line)
@@ -104,31 +104,20 @@
 (after! projectile (setq projectile-project-root-files-bottom-up (remove ".git"
           projectile-project-root-files-bottom-up)))
 
-;; ;; lsp-java config
-;; (condition-case nil
-;;     (require 'use-package)
-;;   (file-error
-;;    (require 'package)
-;;    (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-;;    (package-initialize)
-;;    (package-refresh-contents)
-;;    (package-install 'use-package)
-;;    (setq use-package-always-ensure t)
-;;    (require 'use-package)))
-
 (doom/set-frame-opacity 92)
 
-(after! js2-mode
-  (setq js-indent-level 4
-        js2-basic-offset 4))
+;; after! se usa con un paquete, a veces el paquete se llama *-mode a veces se llama * y ya
+(add-hook 'js-mode-hook
+          (lambda() (setq js-indent-level 4)))
 
-(after! js-mode
-  (setq js-indent-level 4))
+(add-hook 'js2-mode-hook
+          (lambda() (setq js2-basic-offset 4)))
 
-(after! typescript-mode
-  (setq typescript-indent-level 4))
+(add-hook 'typescript-mode-hook
+          (lambda() (setq typescript-indent-level 4)))
 
-(after! web-mode
-  (setq web-mode-markup-indent-offset 4
-        web-mode-css-indent-offset 4
-        web-mode-code-indent-offset 4))
+(add-hook 'web-mode-hook
+          (lambda() (setq web-mode-markup-indent-offset 4)
+                     (setq web-mode-css-indent-offset 4)
+                     (setq web-mode-code-indent-offset 4)
+                     (setq web-mode-sql-indent-offset 4)))
