@@ -121,3 +121,6 @@
                      (setq web-mode-css-indent-offset 4)
                      (setq web-mode-code-indent-offset 4)
                      (setq web-mode-sql-indent-offset 4)))
+
+(map! :nvie "<dead-grave>" "`")
+(map! :nvie "<dead-acute>" "´")
