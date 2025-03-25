@@ -8,6 +8,8 @@
 (package! evil-mc)
 ;; (package! lsp-java)
 (package! dap-mode)
+(package! dockerfile-mode) ; Hecho por literalmente Spotify, que cojones?
+(package! angular-mode)
 
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
