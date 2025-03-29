@@ -125,6 +125,7 @@
 (map! :nvie "<dead-grave>" "`")
 (map! :nvie "<dead-acute>" "´")
 
+(setq evil-shift-width 4)
 ; Esto solo sirve si se ejecuta emacs cada vez (add-to-list 'default-frame-alist '(width . 160))  ; Width set to 80 characters (add-to-list 'default-frame-alist '(height . 45)) ; Height set to 24 lines
 ; Config para cliente de emacs, establece el tamaño del frame y la opacidad cada vez que se abre
 ; emacsclient -c -e "(progn (select-frame-set-input-focus (selected-frame)) (doom/set-frame-opacity 92) (set-frame-size (selected-frame) 150 41))"
