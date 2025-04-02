@@ -9,9 +9,8 @@
 ;; (package! lsp-java)
 (package! dap-mode)
 (package! dockerfile-mode) ; Hecho por literalmente Spotify, que cojones?
-(package! angular-mode)
 (package! drag-stuff)
-
+(package! ng2-mode)
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;(package! some-package)

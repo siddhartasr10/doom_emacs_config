@@ -132,3 +132,26 @@
 ; Esto solo sirve si se ejecuta emacs cada vez (add-to-list 'default-frame-alist '(width . 160))  ; Width set to 80 characters (add-to-list 'default-frame-alist '(height . 45)) ; Height set to 24 lines
 ; Config para cliente de emacs, establece el tamaño del frame y la opacidad cada vez que se abre
 ; emacsclient -c -e "(progn (select-frame-set-input-focus (selected-frame)) (doom/set-frame-opacity 92) (set-frame-size (selected-frame) 150 41))"
+
+; Hacer que esta configuración funcione me ha costado sangre sudor y lágrimas :) (solo 3 horitas jiji)
+(setq lsp-clients-angular-language-server-command
+  '("node" "/usr/lib/node_modules/@angular/language-server"
+    "--ngProbeLocations" "/usr/lib/node_modules"
+    "--tsProbeLocations" "/usr/lib/node_modules"
+    "--stdio"))
+
+; Requiere angular-ls, si no lo tienes instálalo con npm install -g @angular/language-service@next typescript  @angular/language-server
+(after! lsp-mode
+  (add-to-list 'lsp-language-id-configuration
+               '(ng2-html-mode . "angular"))
+
+  (add-to-list 'lsp-language-id-configuration
+               '(ng2-ts-mode . "angular"))
+
+  (lsp-register-client
+   (make-lsp-client
+    :new-connection (lsp-stdio-connection lsp-clients-angular-language-server-command)
+    :major-modes '(ng2-html-mode ng2-ts-mode)
+    :server-id 'angular-ls)))
+
+;(setq lsp-log-io t) ; Activalo cada vez que quieras añadir un lsp personalizado
