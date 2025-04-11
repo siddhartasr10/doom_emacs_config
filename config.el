@@ -109,7 +109,6 @@
 ;; after! se usa con un paquete, a veces el paquete se llama *-mode a veces se llama * y ya
 (add-hook 'js-mode-hook
           (lambda() (setq js-indent-level 4)))
-
 (add-hook 'js2-mode-hook
           (lambda() (setq js2-basic-offset 4)))
 
@@ -121,6 +120,13 @@
                      (setq web-mode-css-indent-offset 4)
                      (setq web-mode-code-indent-offset 4)
                      (setq web-mode-sql-indent-offset 4)))
+
+(add-hook 'ng2-html-mode-hook
+          (lambda() (setq evil-shift-width 4)))
+
+
+(add-hook 'ng2-ts-mode-hook
+          (lambda() (setq evil-shift-width 4)))
 
 (map! :nvie "<dead-grave>" "`")
 (map! :nvie "<dead-acute>" "´")
@@ -143,15 +149,19 @@
 ; Requiere angular-ls, si no lo tienes instálalo con npm install -g @angular/language-service@next typescript  @angular/language-server
 (after! lsp-mode
   (add-to-list 'lsp-language-id-configuration
-               '(ng2-html-mode . "angular"))
+               '(ng2-html-mode . "html"))
 
   (add-to-list 'lsp-language-id-configuration
-               '(ng2-ts-mode . "angular"))
+               '(ng2-ts-mode . "typescript"))
 
   (lsp-register-client
    (make-lsp-client
     :new-connection (lsp-stdio-connection lsp-clients-angular-language-server-command)
     :major-modes '(ng2-html-mode ng2-ts-mode)
+    :activation-fn (lsp-activate-on "typescript" "html")
+    :priority 10
     :server-id 'angular-ls)))
 
-;(setq lsp-log-io t) ; Activalo cada vez que quieras añadir un lsp personalizado
+;; (setq lsp-log-io t) ; Activalo cada vez que quieras añadir un lsp personalizado para ver los errores
+
+;; El registro no esta ocurriendo despues del lsp-mode voy a probar a crear una función y usarlo desde aquí
