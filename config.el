@@ -106,6 +106,9 @@
 
 (doom/set-frame-opacity 92)
 
+(add-hook 'java-mode-hook
+          lambda() (setq c-basic-offset 4)
+ )
 ;; after! se usa con un paquete, a veces el paquete se llama *-mode a veces se llama * y ya
 (add-hook 'js-mode-hook
           (lambda() (setq js-indent-level 4)))
